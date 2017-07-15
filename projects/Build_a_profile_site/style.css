@@ -52,13 +52,12 @@ main{
   height: 85vh;
   padding-top: 1.2em;
 }
-.mainimg-box{
+.main-img-box{
   position: relative;
   width:100%;
   padding-top: 45vh;
   height: 0;
-  /*height: 45vh;*/
-  /*overflow: auto;*/
+  overflow: hidden;
 }
 .main-img{
   position: absolute;
@@ -112,5 +111,6 @@ figure img {
 }
 figcaption {
   text-align: center;
+  font-size: 0.8em;
   /*margin-bottom: 3em;*/
 }
