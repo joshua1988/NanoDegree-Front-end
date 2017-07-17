@@ -26,6 +26,7 @@ export default {
   justify-content: center
   background-color: #fff
   padding: 0.8em
+  border-radius: 0.5em
 
 .lotto-number-list
   text-align: center

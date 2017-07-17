@@ -20,8 +20,7 @@ export default {
   data () {
     return {
       lottoNumbers:[],
-      savedNumbers:{},
-      savedattribute:['first','second','third','fourth','fifth']
+      savedNumbers:[]
     }
   },
   components: {
@@ -51,7 +50,10 @@ export default {
       if(value){
         //savedNumber의 속성값을 늘려줘야 되는데 음 ...
         // this.savedNumbers.first
-         this.savedNumbers.first = this.lottoNumbers
+        var templottoNumbers ={}
+        templottoNumbers.numbers = this.lottoNumbers
+
+        this.savedNumbers.push(templottoNumbers)
       }
       else{
         alert('저장할 번호가 없어요 !!!')
