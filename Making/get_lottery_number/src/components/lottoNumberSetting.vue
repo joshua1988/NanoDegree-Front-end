@@ -8,6 +8,13 @@
         </span>
       </span>
       </li>
+      <li class="lottonumber-setting-list-item">
+        <span class="btn-save-lottonumber" @click="saveLottoNumber">Save it!
+        <span class="btn-save-lottonumber-icon">
+          <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        </span>
+      </span>
+      </li>
       <li><span></span></li>
       <li><span></span></li>
     </ul>
@@ -24,6 +31,9 @@ export default {
   methods: {
     makeLottoNumber() {
       this.$emit("makeLottoNumber");
+    },
+    saveLottoNumber(){
+      this.$emit("saveLottoNumber");
     }
   }
 }
@@ -43,19 +53,25 @@ export default {
   // background-color: #fff
 
 .lottonumber-setting-list-item
+  margin-right: 0.8em
 
-.btn-make-lottonumber
+.btn-make-lottonumber, .btn-save-lottonumber
   display: inline-block
   background-color: #EDC6A8
   line-height: 2em
   padding-left: 0.5em
   border-radius: 0.3em
 
-.btn-make-lottonumber-icon
+.btn-make-lottonumber-icon,.btn-save-lottonumber-icon
   text-align: center
   display: inline-block
   width: 2em
   height: 2em
-  background-color: #E2591E
   border-radius: 0.3em
+
+.btn-make-lottonumber-icon
+  background-color: #E2591E
+
+.btn-save-lottonumber-icon
+  background-color: #f41212
 </style>

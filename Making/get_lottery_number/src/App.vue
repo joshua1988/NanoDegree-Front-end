@@ -1,29 +1,34 @@
 <template>
   <div id="app">
     <lottoHeader></lottoHeader>
-    <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber"></lottoNumberSetting>
+    <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
+    <lottoNumberSaveList :savedNumbers="savedNumbers"></lottoNumberSaveList>
     <lottoFooter></lottoFooter>
   </div>
 </template>
 
 <script>
 import lottoHeader from './components/lottoHeader.vue'
-import lottoNumberList from './components/lottoNumberList.vue'
 import lottoNumberSetting from './components/lottoNumberSetting.vue'
+import lottoNumberList from './components/lottoNumberList.vue'
+import lottoNumberSaveList from './components/lottoNumberSaveList.vue'
 import lottoFooter from './components/lottoFooter.vue'
 export default {
   name: 'app',
 
   data () {
     return {
-      lottoNumbers:[]
+      lottoNumbers:[],
+      savedNumbers:{},
+      savedattribute:['first','second','third','fourth','fifth']
     }
   },
   components: {
     lottoHeader: lottoHeader,
     lottoNumberSetting: lottoNumberSetting,
     lottoNumberList: lottoNumberList,
+    lottoNumberSaveList: lottoNumberSaveList,
     lottoFooter: lottoFooter
   },
   methods: {
@@ -41,6 +46,17 @@ export default {
       this.lottoNumbers = numberList.slice(0,6);
       console.log(this.lottoNumbers);
   	},
+    saveLottoNumber(){
+      var value = this.lottoNumbers.length
+      if(value){
+        //savedNumber의 속성값을 늘려줘야 되는데 음 ...
+        // this.savedNumbers.first
+         this.savedNumbers.first = this.lottoNumbers
+      }
+      else{
+        alert('저장할 번호가 없어요 !!!')
+      }
+    },
     shuffle(items,n){
       while (n--) {
         var i = Math.floor(n * Math.random());
