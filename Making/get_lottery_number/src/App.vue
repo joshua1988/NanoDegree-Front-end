@@ -3,7 +3,7 @@
     <lottoHeader></lottoHeader>
     <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
-    <lottoNumberSaveList :savedNumbers="savedNumbers" @v-on:deleteLottoNumbers="deleteLottoNumbers"></lottoNumberSaveList>
+    <lottoNumberSaveList :savedNumbers="savedNumbers" v-on:deleteLottoNumbers="deleteLottoNumbers"></lottoNumberSaveList>
     <lottoFooter></lottoFooter>
   </div>
 </template>
