@@ -5,7 +5,9 @@
             <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
 
                 <span class="each-number">{{savedlottoNumber.numbers}}</span>
-                
+                <span class="btn-save-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,index)">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </span>
                 <!--method로 바꾸려는 시도   -->
                 <!-- <span class="each-number">{{displayNumbers(savedlottoNumber.numbers)}}</span> -->
 
@@ -35,6 +37,11 @@ export default {
     methods: {
        displayNumbers() {
 
+      },
+      deleteLottoNumbers(savedlottoNumber,index){
+        this.$emit('deleteLottoNumbers',savedlottoNumber,index);
+        console.log(savedlottoNumber,index);
+
       }
     },
 
@@ -50,5 +57,13 @@ export default {
   text-align: center
   background-color: #ffeaba
   line-height: 2.5em
+
+.btn-make-lottonumber-icon,.btn-save-lottonumber-icon
+  text-align: center
+  display: inline-block
+  width: 2em
+  height: 2em
+  border-radius: 0.3em
+  line-height: 2em
 
 </style>

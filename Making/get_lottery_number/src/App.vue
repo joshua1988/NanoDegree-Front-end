@@ -3,7 +3,7 @@
     <lottoHeader></lottoHeader>
     <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
-    <lottoNumberSaveList :savedNumbers="savedNumbers"></lottoNumberSaveList>
+    <lottoNumberSaveList :savedNumbers="savedNumbers" @v-on:deleteLottoNumbers="deleteLottoNumbers"></lottoNumberSaveList>
     <lottoFooter></lottoFooter>
   </div>
 </template>
@@ -69,6 +69,11 @@ export default {
       }
       return items;
       // https://jsperf.com/array-shuffle-comparator/5
+    },
+    deleteLottoNumbers(item,index){
+      console.log('하이');
+      console.log(this.savedNumbers);
+      this.savedNumbers.splice(index, 1);
     }
   },
   // watch: {

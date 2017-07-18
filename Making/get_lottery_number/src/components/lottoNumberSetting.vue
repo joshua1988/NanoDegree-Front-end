@@ -70,6 +70,7 @@ export default {
   width: 2em
   height: 2em
   border-radius: 0.3em
+  line-height: 2em
 
 .btn-make-lottonumber-icon
   background-color: #E2591E
