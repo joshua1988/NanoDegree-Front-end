@@ -2,9 +2,8 @@
   <section>
     <nav v-if="giveLottoNumber.length" class="lotto-number-box">
       <ul  class="lotto-number-list">
-      <li v-for="lottoNumber in giveLottoNumber" class="lotto-number">{{lottoNumber}}</li>
+        <li v-for="lottoNumber in giveLottoNumber" class="lotto-number">{{lottoNumber}}</li>
       </ul>
-
     </nav>
   </section>
 </template>

@@ -4,8 +4,13 @@
         <ul class="saved-number-list">
             <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
 
-                <span class="eachnumber">{{savedlottoNumber.numbers}}</span>
+                <span class="each-number">{{savedlottoNumber.numbers}}</span>
+                <!--method로 바꾸려는 시도   -->
+                <span class="each-number" v-text="displayNumbers(savedlottoNumber.numbers)"></span>
+
+                <!--Computed 적용하려 했으나 잘 안 됨   -->
                 <!-- <span class="eachnumber" >{{ displayNumbers(savedlottoNumber.numbers)}}</span> -->
+                <!-- <span class="each-number" v-text="displayNumbers(savedlottoNumber.numbers)"></span> -->
 
             </li>
         </ul>
@@ -22,9 +27,14 @@ export default {
         }
     },
     computed: {
-        displayNumbers: function(Numbers) {
+        displayNumbers(Numbers) {
             return Numbers;
         }
+    },
+    methods: {
+       displayNumbers() {
+
+      }
     },
 
     updated: function updated() {
@@ -33,4 +43,11 @@ export default {
     }
 }
 </script>
-<style lang="sass">.saved-lotto-numbers</style>
+<style lang="sass">
+.saved-lotto-numbers
+  width: 100%
+  text-align: center
+  background-color: #ffeaba
+  line-height: 2.5em
+
+</style>
