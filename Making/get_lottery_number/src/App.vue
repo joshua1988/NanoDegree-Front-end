@@ -3,7 +3,7 @@
     <lottoHeader></lottoHeader>
     <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
-    <lottoNumberSaveList :savedNumbers="savedNumbers" v-on:deleteLottoNumbers="deleteLottoNumbers"></lottoNumberSaveList>
+    <lottoNumberSaveList :savedNumbers="savedNumbers" @v-on:deleteLottoNumbers="deleteLottoNumbers"></lottoNumberSaveList>
     <lottoFooter></lottoFooter>
   </div>
 </template>
@@ -51,10 +51,19 @@ export default {
       if(value){
         //savedNumber의 속성값을 늘려줘야 되는데 음 ...
         // this.savedNumbers.first
-        var templottoNumbers ={}
-        templottoNumbers.numbers = this.lottoNumbers
+        var templottoNumbers = {};
 
-        this.savedNumbers.push(templottoNumbers)
+        // #1 - this.lottoNumbers 는 아래에서 찍히는 것처럼 타입이 object 입니다.
+        // console.log(typeof this.lottoNumbers);
+
+        // #2 - templottoNumbers 의 빈 객체 선언후 왜 numbers 에 넣으셨나요?
+        //      값을 복사하는 거라면 반복문을 활용하시거나 아래 #3 처럼 값을 통째로 복사하는 방법도 있지만,
+        //      추후에 상태관리나 Reactivity system 관점에서 봤을 때 데이터 참조 값을 그대로 복사하면
+        //      아마 다른 부작용이 있을겁니다. 구현해보시면서 이로 인해 생기는 문제점이 있으면 공유해주세요!
+        // templottoNumbers.numbers = this.lottoNumbers;
+
+        this.savedNumbers = this.lottoNumbers;
+        // this.savedNumbers.push(templottoNumbers);
       }
       else{
         alert('저장할 번호가 없어요 !!!')
@@ -76,13 +85,13 @@ export default {
       this.savedNumbers.splice(index, 1);
     }
   },
-  // watch: {
-  //   lottoNumbers: {
-  //     handler: function (lottoNumber) {
-  //       console.log("changed");
-  //     }
-  //   }
-  // },
+  watch: {
+    // savedNumbers: {
+    //   handler: function (lottoNumber) {
+    //     console.log("changed");
+    //   }
+    // }
+  },
 }
 
 
