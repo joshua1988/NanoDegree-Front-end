@@ -8,7 +8,7 @@
         </span>
       </span>
       </li>
-      <li class="lottonumber-setting-list-item">
+      <li class="lottonumber-setting-list-item" v-if="displaySaveButton">
         <span class="btn-save-lottonumber" @click="saveLottoNumber">Save it!
         <span class="btn-save-lottonumber-icon">
           <i class="fa fa-floppy-o" aria-hidden="true"></i>
@@ -25,15 +25,17 @@ export default {
   name: "",
   data: function data() {
     return {
-
+      displaySaveButton: false,
     }
   },
   methods: {
     makeLottoNumber() {
       this.$emit("makeLottoNumber");
+      this.displaySaveButton = true;
     },
     saveLottoNumber(){
       this.$emit("saveLottoNumber");
+      this.displaySaveButton = false;
     }
   }
 }

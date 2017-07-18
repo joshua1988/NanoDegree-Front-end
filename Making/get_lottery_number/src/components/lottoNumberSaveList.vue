@@ -5,8 +5,9 @@
             <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
 
                 <span class="each-number">{{savedlottoNumber.numbers}}</span>
+                
                 <!--method로 바꾸려는 시도   -->
-                <span class="each-number" v-text="displayNumbers(savedlottoNumber.numbers)"></span>
+                <!-- <span class="each-number">{{displayNumbers(savedlottoNumber.numbers)}}</span> -->
 
                 <!--Computed 적용하려 했으나 잘 안 됨   -->
                 <!-- <span class="eachnumber" >{{ displayNumbers(savedlottoNumber.numbers)}}</span> -->
