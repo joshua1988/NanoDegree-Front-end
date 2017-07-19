@@ -75,14 +75,15 @@ export default {
       // https://jsperf.com/array-shuffle-comparator/5
     },
     deleteLottoNumbers(item,index){
-      console.log('하이');
+      console.log('하이:',item,index);
       console.log(this.savedNumbers);
       this.savedNumbers.splice(index, 1);
-      localStorage.removeItem(item);
+      localStorage.removeItem(index+1);
     },
     allCLear(){
       this.savedNumbers =[];
       localStorage.clear();
+      this.index = 0;
     }
   },
   // watch: {

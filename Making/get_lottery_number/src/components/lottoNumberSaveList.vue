@@ -86,7 +86,7 @@ export default {
   text-align: center
   color: #cd2015
   border-radius: 0.3em
-  margin-top: 0.5em
+  margin-top: 1.2em
 
 
 </style>
