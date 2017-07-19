@@ -49,8 +49,7 @@ export default {
     saveLottoNumber(){
       var value = this.lottoNumbers.length
       if(value){
-        //savedNumber의 속성값을 늘려줘야 되는데 음 ...
-        // this.savedNumbers.first
+      
         var templottoNumbers ={}
         templottoNumbers.numbers = this.lottoNumbers
 

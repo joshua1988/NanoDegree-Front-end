@@ -66,5 +66,6 @@ export default {
   height: 2em
   border-radius: 0.3em
   line-height: 2em
+  color: #cd2015
 
 </style>
