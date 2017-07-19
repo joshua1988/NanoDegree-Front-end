@@ -3,7 +3,9 @@
     <lottoHeader></lottoHeader>
     <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
-    <lottoNumberSaveList :savedNumbers="savedNumbers" v-on:deleteLottoNumbers="deleteLottoNumbers"></lottoNumberSaveList>
+    <lottoNumberSaveList :savedNumbers="savedNumbers" v-on:deleteLottoNumbers="deleteLottoNumbers"
+     v-on:allCLear="allCLear"
+    ></lottoNumberSaveList>
     <lottoFooter></lottoFooter>
   </div>
 </template>
@@ -77,6 +79,10 @@ export default {
       console.log(this.savedNumbers);
       this.savedNumbers.splice(index, 1);
       localStorage.removeItem(item);
+    },
+    allCLear(){
+      this.savedNumbers =[];
+      localStorage.clear();
     }
   },
   // watch: {

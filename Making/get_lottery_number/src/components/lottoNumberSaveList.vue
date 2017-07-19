@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div class="clear-savedNumber">
-      <button class="btn-clearall-savedNumber">All Clear</button>
+      <button class="btn-clearall-savedNumber" @click="allCLear">All Clear</button>
     </div>
 </section>
 </template>
@@ -45,6 +45,9 @@ export default {
         this.$emit('deleteLottoNumbers',savedlottoNumber,index);
         console.log(savedlottoNumber,index);
 
+      },
+      allCLear(){
+        this.$emit('allCLear')
       }
     },
 
@@ -58,9 +61,11 @@ export default {
 .saved-lotto-numbers
   width: 100%
   text-align: center
-  background-color: #ffeaba
   line-height: 2.5em
   border-radius: 0.5em
+
+.saved-lotto-number-box
+  background-color: #ffeaba
 
 .btn-delete-lottonumber-icon,
   text-align: center
@@ -70,5 +75,18 @@ export default {
   border-radius: 0.3em
   line-height: 2em
   color: #cd2015
+
+.clear-savedNumber
+
+
+.btn-clearall-savedNumber
+  border: 0
+  background-color: #fff
+  padding: 1em
+  text-align: center
+  color: #cd2015
+  border-radius: 0.3em
+  margin-top: 0.5em
+
 
 </style>
