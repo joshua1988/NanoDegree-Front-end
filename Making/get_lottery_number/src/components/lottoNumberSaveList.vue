@@ -5,7 +5,7 @@
             <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
 
                 <span class="each-number">{{savedlottoNumber.numbers}}</span>
-                <span class="btn-save-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,index)">
+                <span class="btn-delete-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,index)">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </span>
                 <!--method로 바꾸려는 시도   -->
@@ -57,8 +57,9 @@ export default {
   text-align: center
   background-color: #ffeaba
   line-height: 2.5em
+  border-radius: 0.5em
 
-.btn-make-lottonumber-icon,.btn-save-lottonumber-icon
+.btn-delete-lottonumber-icon,
   text-align: center
   display: inline-block
   width: 2em

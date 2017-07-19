@@ -83,6 +83,13 @@ export default {
   //     }
   //   }
   // },
+    watch: {
+     savedNumbers: {
+     handler: function (lottoNumber) {
+         console.log("changed");
+       }
+    }
+   }
 }
 
 
