@@ -51,15 +51,15 @@ export default {
       // 버튼이 눌리면 savebutton이 나오기 때문에
       // validation 필요가 없음
         this.index++;
-        var STORAGE_KEY = 'Get Lotto Number version.1'
+        // var STORAGE_KEY = 'Get Lotto Number version.1'
         var lotto_number = this.lottoNumbers;
         var templottoNumbers ={}
         templottoNumbers.numbers = lotto_number;
         templottoNumbers.index = this.index;
 
         this.savedNumbers.push(templottoNumbers);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(templottoNumbers))
-        //로컬스토리지 덮어 쓴다. 
+        localStorage.setItem(this.index, JSON.stringify(templottoNumbers))
+        //로컬스토리지 덮어 쓴다.
 
     },
     shuffle(items,n){
