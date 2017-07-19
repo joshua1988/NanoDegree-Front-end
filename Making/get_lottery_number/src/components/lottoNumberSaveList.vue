@@ -18,6 +18,9 @@
             </li>
         </ul>
     </div>
+    <div class="clear-savedNumber">
+      <button class="btn-clearall-savedNumber">All Clear</button>
+    </div>
 </section>
 </template>
 <script>

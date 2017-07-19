@@ -20,7 +20,8 @@ export default {
   data () {
     return {
       lottoNumbers:[],
-      savedNumbers:[]
+      savedNumbers:[],
+      index:0
 
     }
   },
@@ -47,17 +48,19 @@ export default {
       console.log(this.lottoNumbers);
   	},
     saveLottoNumber(){
-      var value = this.lottoNumbers.length
-      if(value){
-      
+      // 버튼이 눌리면 savebutton이 나오기 때문에
+      // validation 필요가 없음
+        this.index++;
+        var STORAGE_KEY = 'Get Lotto Number version.1'
+        var lotto_number = this.lottoNumbers;
         var templottoNumbers ={}
-        templottoNumbers.numbers = this.lottoNumbers
+        templottoNumbers.numbers = lotto_number;
+        templottoNumbers.index = this.index;
 
-        this.savedNumbers.push(templottoNumbers)
-      }
-      else{
-        alert('저장할 번호가 없어요 !!!')
-      }
+        this.savedNumbers.push(templottoNumbers);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(templottoNumbers))
+        //로컬스토리지 덮어 쓴다. 
+
     },
     shuffle(items,n){
       while (n--) {
@@ -73,6 +76,7 @@ export default {
       console.log('하이');
       console.log(this.savedNumbers);
       this.savedNumbers.splice(index, 1);
+      localStorage.removeItem(item);
     }
   },
   // watch: {
