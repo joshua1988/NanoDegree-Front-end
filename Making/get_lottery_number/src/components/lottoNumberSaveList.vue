@@ -2,9 +2,17 @@
 <section class="saved-lotto-numbers">
     <div class="saved-lotto-number-box" v-if="savedNumbers.length">
         <ul class="saved-number-list">
-            <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
+            <li v-for="(savedlottoNumber, index) in savedNumbers" class="saved-lotto-number">
 
-                <span class="each-number">{{savedlottoNumber}}</span>
+                <!-- App.vue 에서 Array 로 받아와서 표현할 때만 아래와 2가지 케이스처럼 String 으로 변환해서 표현하거나  -->
+                <!-- #2-1 -->
+                <!-- <span class="each-number">{{ String(savedlottoNumber) }}</span> -->
+
+                <!-- #2-2 -->
+                <!-- <span class="each-number">{{ savedlottoNumber.join() }}</span> -->
+
+                <span class="each-number">{{ savedlottoNumber }}</span>
+
                 <span class="btn-save-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,index)">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </span>
@@ -29,7 +37,7 @@
 
                 그럼에도 불구하고 computed 를 편법으로 사용하시고 싶으면,
                 아래 computed 에 구현한 map() 방식을 참고하세요. -->
-                <span class="eachnumber">{{ doubleSavedLottoNumber }}</span>
+                <!-- <span class="eachnumber">{{ doubleSavedLottoNumber }}</span> -->
 
             </li>
         </ul>
@@ -47,12 +55,12 @@ export default {
         }
     },
     computed: {
-        doubleSavedLottoNumber() {
-          return this.savedNumbers.map(function (data) {
-            data *= 2;
-            return data;
-          });
-        }
+        // doubleSavedLottoNumber() {
+        //   return this.savedNumbers.map(function (data) {
+        //     data *= 2;
+        //     return data;
+        //   });
+        // },
     },
     methods: {
       showNumbers() {

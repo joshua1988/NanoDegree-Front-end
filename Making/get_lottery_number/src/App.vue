@@ -62,7 +62,9 @@ export default {
         //      아마 다른 부작용이 있을겁니다. 구현해보시면서 이로 인해 생기는 문제점이 있으면 공유해주세요!
         // templottoNumbers.numbers = this.lottoNumbers;
 
-        this.savedNumbers = this.lottoNumbers;
+        // #2-3
+        // App.vue 에서 SaveList.vue 로 넘길 때 Array 가 아니라 String 으로 변환해서 넘길수도 있습니다.
+        this.savedNumbers.push(String(this.lottoNumbers));
         // this.savedNumbers.push(templottoNumbers);
       }
       else{
