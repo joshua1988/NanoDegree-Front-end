@@ -5,7 +5,7 @@
             <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
 
                 <span class="each-number">{{savedlottoNumber.numbers}}</span>
-                <span class="btn-delete-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,index)">
+                <span class="btn-delete-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,savedlottoNumber.index,index)">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </span>
             </li>
@@ -35,9 +35,9 @@ export default {
        displayNumbers() {
 
       },
-      deleteLottoNumbers(savedlottoNumber,index){
-        this.$emit('deleteLottoNumbers',savedlottoNumber,index);
-        console.log(savedlottoNumber,index);
+      deleteLottoNumbers(savedlottoNumber,localIndex,appdataIndex){
+        this.$emit('deleteLottoNumbers',savedlottoNumber,localIndex,appdataIndex);
+        console.log(savedlottoNumber,localIndex,appdataIndex);
 
       },
       allCLear(){
@@ -61,6 +61,9 @@ export default {
 
 .saved-lotto-number-box
   background-color: #ffeaba
+
+
+.saved-number-list
 
 .btn-delete-lottonumber-icon,
   text-align: center
