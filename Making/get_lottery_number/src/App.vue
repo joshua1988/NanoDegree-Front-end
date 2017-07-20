@@ -4,7 +4,7 @@
     <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
     <lottoNumberSaveList :savedNumbers="savedNumbers" v-on:deleteLottoNumbers="deleteLottoNumbers"
-     v-on:allCLear="allCLear"
+     v-on:allCLear="allCLear" :savedNumbersCount="savedNumbersCount"
     ></lottoNumberSaveList>
     <lottoFooter></lottoFooter>
   </div>
@@ -23,7 +23,8 @@ export default {
     return {
       lottoNumbers:[],
       savedNumbers:[],
-      index:0
+      index:localStorage.length,
+      savedNumbersCount: localStorage.length
 
     }
   },
@@ -61,6 +62,7 @@ export default {
 
         this.savedNumbers.push(templottoNumbers);
         localStorage.setItem(this.index, JSON.stringify(templottoNumbers))
+        this.savedNumbersCount = localStorage.length;
         //로컬스토리지 덮어 쓴다.
 
     },
@@ -84,6 +86,11 @@ export default {
       this.savedNumbers =[];
       localStorage.clear();
       this.index = 0;
+    },
+  },
+  computed: {
+    countSavedNumbers(){
+      // return localStorage.length;
     }
   },
   // watch: {
@@ -98,6 +105,11 @@ export default {
      handler: function (lottoNumber) {
          console.log("changed");
        }
+    },
+    savedNumbersCount:{
+      handler: function(lottoNumber){
+        console.log("갯수를 세줘 ");
+      }
     }
    }
 }
